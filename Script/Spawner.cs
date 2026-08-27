@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Transform[] spawnPoint;
+    public SpawnData[] spawnData;
 
     int level;
     float timer;
@@ -16,9 +17,9 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        level = Mathf.FloorToInt(GameManager.gameManagerInstance.gameTime / 10f); //<why? Mathf.FloorToInt 
+        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / 10f), spawnData.Length - 1); //<why? Mathf.FloorToInt 
 
-        if (timer > (level == 0 ? 0.5f : 0.2f))
+        if (timer > spawnData[level].spawnTime)
         {
             timer = 0f;
             Spawn();
@@ -27,15 +28,18 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        GameObject enemy = GameManager.gameManagerInstance.pool.Get(level);
+        GameObject enemy = GameManager.instance.pool.Get(0);//Get(0)<calling poolmanager
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;//Range(1)<GetComponentsInChildren
+        enemy.GetComponent<Enemy>().Init(spawnData[level]);//controll spawnData
     }
 }
 
+[System.Serializable]
 public class SpawnData
 {
-    public int spriteType;
     public float spawnTime;
+
+    public int spriteType;
     public int health;
     public float speed;
 }

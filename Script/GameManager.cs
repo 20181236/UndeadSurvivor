@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameManagerInstance;
+    public static GameManager instance;
 
     public float gameTime;
     public float maxGameTime = 2 * 10f;
@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        gameManagerInstance = this;
+        instance = this;
     }
 }

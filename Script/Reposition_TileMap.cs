@@ -15,12 +15,12 @@ public class Reposition_TileMap : MonoBehaviour
         if (!collision.CompareTag("Area"))
             return;
 
-        Vector3 playerPosition = GameManager.gameManagerInstance.player.transform.position;
+        Vector3 playerPosition = GameManager.instance.player.transform.position;
         Vector3 myPosition = transform.position;
         float differentX = Mathf.Abs(playerPosition.x - myPosition.x);
         float differentY = Mathf.Abs(playerPosition.y - myPosition.y);
 
-        Vector3 playerDirection = GameManager.gameManagerInstance.player.player_InputVector;
+        Vector3 playerDirection = GameManager.instance.player.player_InputVector;
         float directionX = playerDirection.x < 0 ? -1 : 1;
         float directionY = playerDirection.y < 0 ? -1 : 1;
 
