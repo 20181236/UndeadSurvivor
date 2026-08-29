@@ -11,11 +11,14 @@ public class Player : MonoBehaviour
     Rigidbody2D player_Rigidbody;
     SpriteRenderer player_Spriter;
     Animator player_Animator;
-    void Start()
+
+    public Scanner scanner;
+    void Awake()
     {
         player_Rigidbody = GetComponent<Rigidbody2D>();
         player_Spriter = GetComponent<SpriteRenderer>();
         player_Animator = GetComponent<Animator>();
+        scanner = GetComponent<Scanner>();
     }
 
     void Update()

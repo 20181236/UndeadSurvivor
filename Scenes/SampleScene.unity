@@ -153,6 +153,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 913503332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &186223128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186223129}
+  - component: {fileID: 186223130}
+  m_Layer: 0
+  m_Name: Weapon 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186223129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186223128}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 719967142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186223130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186223128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b01456e42755e4dac9c6e771709a77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  prefabId: 2
+  damage: 3
+  count: 0
+  speed: 0
 --- !u!1 &215451286
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +892,7 @@ GameObject:
   - component: {fileID: 719967143}
   - component: {fileID: 719967144}
   - component: {fileID: 719967145}
+  - component: {fileID: 719967146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -981,6 +1031,7 @@ Transform:
   - {fileID: 677244056}
   - {fileID: 913503332}
   - {fileID: 482246694}
+  - {fileID: 186223129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &719967143
@@ -997,6 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_InputVector: {x: 0, y: 0}
   speed: 5
+  scanner: {fileID: 0}
 --- !u!114 &719967144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1100,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &719967146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719967138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192a8655b7bcddd4f8c086c0b59297a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
 --- !u!1 &722840614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,6 +5650,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 4438226192515701304, guid: 3a327cea04dc7e341ae6a88ebc89b7d0, type: 3}
   - {fileID: 1163636093587430841, guid: de206c5f9f0304a41a55f86c289c17b9, type: 3}
+  - {fileID: 1465255316421037560, guid: 7f7e4737a3761d2499a65e0a52385b28, type: 3}
 --- !u!4 &961052016
 Transform:
   m_ObjectHideFlags: 0
