@@ -16,12 +16,7 @@ public class Weapon : MonoBehaviour
 
     void Awake()
     {
-        player = GetComponentInParent<Player>();
-    }
-
-    void Start()
-    {
-        Init();
+        player = GameManager.instance.player;
     }
 
     void Update()
@@ -49,8 +44,27 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Init()
+    public void Init(ItemData data)
     {
+        //Basic Set
+        name = "Weapon " + data.itemID;
+        transform.parent = player.transform;//자식오브젝트로 등록
+        transform.localPosition = Vector3.zero;
+
+        //Property Set
+        id = data.itemID;
+        damage = data.baseDamage;
+        count = data.baseCount;
+
+        for (int index = 0; index < GameManager.instance.pool.prefabs.Length; index++)
+        {
+            if(data.projectile == GameManager.instance.pool.prefabs[index])
+            {
+                prefabId = index;//프리팹 아이디는 풀인 매니저 변수에서 찾아와서 초기화
+                break;
+            }
+        }
+
         switch (id)
         {
             case 0:
@@ -61,6 +75,8 @@ public class Weapon : MonoBehaviour
                 speed = 0.3f;
                 break;
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     public void LevelUp(float damage, int count)
@@ -70,6 +86,8 @@ public class Weapon : MonoBehaviour
 
         if (id == 0)
             Batch();
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);//어플라이 기어가 발생하는 타이밍을 정리해두면 좋을듯
     }
 
     void Batch() // request fix naming
