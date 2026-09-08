@@ -13,17 +13,31 @@ public class Player : MonoBehaviour
     Animator player_Animator;
 
     public Scanner scanner;
+    public Hand[] hands;
+    public RuntimeAnimatorController[] player_AnimatorController;
+
     void Awake()
     {
         player_Rigidbody = GetComponent<Rigidbody2D>();
         player_Spriter = GetComponent<SpriteRenderer>();
         player_Animator = GetComponent<Animator>();
         scanner = GetComponent<Scanner>();
+        hands = GetComponentsInChildren<Hand>(true);
+    }
+
+    void OnEnable()
+    {
+        speed += Character.MoveSpeed;
+        player_Animator.runtimeAnimatorController = player_AnimatorController[GameManager.instance.playerId];
     }
 
     void Update()
     {
+        if (!GameManager.instance.isLive)
+            return;
 
+        //player_InputVector.x = Input.GetAxisRaw("Horizontal");
+        //player_InputVector.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
@@ -52,5 +66,23 @@ public class Player : MonoBehaviour
         player_InputVector = value.Get<Vector2>();
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;
 
+        GameManager.instance.health -= Time.deltaTime * 10;
+
+        if (GameManager.instance.health < 0)
+        {
+            for (int index = 2; index < transform.childCount; index++)//2< hardcoding -> request naming 
+            {
+                transform.GetChild(index).gameObject.SetActive(false);
+            }
+
+            player_Animator.SetTrigger("Dead");
+            GameManager.instance.GameOver();
+        }
+
+    }
 }

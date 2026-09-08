@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Farmer 2_0
+      name: Run 0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_1
+      name: Run 1
       rect:
         serializedVersion: 2
         x: 19
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_2
+      name: Run 2
       rect:
         serializedVersion: 2
         x: 38
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_3
+      name: Run 3
       rect:
         serializedVersion: 2
         x: 0
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_4
+      name: Run 4
       rect:
         serializedVersion: 2
         x: 19
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_5
+      name: Run 5
       rect:
         serializedVersion: 2
         x: 38
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_6
+      name: Stand 0
       rect:
         serializedVersion: 2
         x: 0
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_7
+      name: Stand 1
       rect:
         serializedVersion: 2
         x: 19
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_8
+      name: Stand 2
       rect:
         serializedVersion: 2
         x: 38
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_9
+      name: Stand 3
       rect:
         serializedVersion: 2
         x: 0
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_10
+      name: Dead 0
       rect:
         serializedVersion: 2
         x: 19
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 2_11
+      name: Dead 1
       rect:
         serializedVersion: 2
         x: 38
@@ -398,18 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Farmer 2_0: 532707857
-      Farmer 2_1: -326786949
-      Farmer 2_10: 234648995
-      Farmer 2_11: -790630287
-      Farmer 2_2: -1799972153
-      Farmer 2_3: -693632537
-      Farmer 2_4: -478755958
-      Farmer 2_5: 816845516
-      Farmer 2_6: 1325816373
-      Farmer 2_7: 1766962323
-      Farmer 2_8: -864830012
-      Farmer 2_9: 95315415
+      Dead 0: 234648995
+      Dead 1: -790630287
+      Run 0: 532707857
+      Run 1: -326786949
+      Run 2: -1799972153
+      Run 3: -693632537
+      Run 4: -478755958
+      Run 5: 816845516
+      Stand 0: 1325816373
+      Stand 1: 1766962323
+      Stand 2: -864830012
+      Stand 3: 95315415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

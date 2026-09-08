@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (!isLive || enemy_animator.GetCurrentAnimatorStateInfo(0).IsName("Hit"))//GetCurrentAnimatorStateInfo(Layerindex)<current state information
             return;
 
@@ -40,6 +43,9 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (!isLive)
             return;
 

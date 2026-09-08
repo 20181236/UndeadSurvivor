@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
 
     Image icon;
     Text textLevel;
+    Text textName;
+    Text textDiscription;
 
     private void Awake()
     {
@@ -19,12 +21,30 @@ public class Item : MonoBehaviour
         icon.sprite = data.itemIcon;
 
         Text[] texts = GetComponentsInChildren<Text>();
-        textLevel = texts[0];
+        textLevel = texts[0];//GetComponents hierarchy taxis
+        textName = texts[1];
+        textDiscription = texts[2];
+        textName.text = data.itemName;
     }
 
-    void LateUpdate()
+    void OnEnable()
     {
-        textLevel.text = "Lv." + (level + 1);
+        textLevel.text = "Lv. " + (level + 1);
+
+        switch (data.itemType)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                textDiscription.text = string.Format(data.itemDescription, data.damages[level] * 100, data.counts[level]);
+                break;
+            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.Shoes:
+                textDiscription.text = string.Format(data.itemDescription, data.damages[level] * 100);
+                break;
+            default:
+                break;
+        }
+
     }
 
     public void OnClick()
