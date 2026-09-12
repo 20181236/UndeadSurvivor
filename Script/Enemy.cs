@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
         {
             // Live, hit action
             enemy_animator.SetTrigger("Hit");
+            AudioManager.instance.PlaySFX(AudioManager.SFX.Hit);
         }
         else
         {
@@ -94,6 +95,11 @@ public class Enemy : MonoBehaviour
             //Dead();<Move to animator event
             GameManager.instance.kill++;
             GameManager.instance.GetExp();
+
+            if (GameManager.instance.isLive)
+            {
+                AudioManager.instance.PlaySFX(AudioManager.SFX.Dead);
+            }
         }
     }
 

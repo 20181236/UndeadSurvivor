@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
         isLive = true;
         Resume();
 
+        AudioManager.instance.PlayBgm(true);
+        AudioManager.instance.PlaySFX(AudioManager.SFX.Select);
+
         //test
         uiLevelUp.Select(playerId % 2);
     }
@@ -74,6 +77,9 @@ public class GameManager : MonoBehaviour
         uiResult.gameObject.SetActive(true);
         uiResult.Lose();
         Stop();
+
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySFX(AudioManager.SFX.Lose);
     }
     public void GameVictroy()
     {
@@ -91,6 +97,9 @@ public class GameManager : MonoBehaviour
         uiResult.gameObject.SetActive(true);
         uiResult.Win();
         Stop();
+
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySFX(AudioManager.SFX.Win);
     }
     public void GetExp()
     {
