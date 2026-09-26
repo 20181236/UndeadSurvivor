@@ -14,7 +14,8 @@ public class Gear : MonoBehaviour
         transform.parent = GameManager.instance.player.transform;
         transform.localPosition = Vector3.zero;
 
-        //Property Set
+        //Pro
+        //ty Set
         type = data.itemType;
         rate = data.damages[0];
         ApplyGear();

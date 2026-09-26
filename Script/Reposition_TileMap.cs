@@ -17,17 +17,20 @@ public class Reposition_TileMap : MonoBehaviour
 
         Vector3 playerPosition = GameManager.instance.player.transform.position;
         Vector3 myPosition = transform.position;
-        float differentX = Mathf.Abs(playerPosition.x - myPosition.x);
-        float differentY = Mathf.Abs(playerPosition.y - myPosition.y);
 
-        Vector3 playerDirection = GameManager.instance.player.player_InputVector;
-        float directionX = playerDirection.x < 0 ? -1 : 1;
-        float directionY = playerDirection.y < 0 ? -1 : 1;
 
-        switch(transform.tag)
+        switch (transform.tag)
         {
             case "Ground":
-                if(differentX > differentY)
+                //Difference in position between two objects
+                float differentX = playerPosition.x - myPosition.x;
+                float differentY = playerPosition.y - myPosition.y;
+                float directionX = differentX < 0 ? -1 : 1;
+                float directionY = differentY < 0 ? -1 : 1;
+                differentX = Mathf.Abs(differentX);
+                differentY = Mathf.Abs(differentY);
+
+                if (differentX > differentY)
                 {
                     transform.Translate(Vector3.right * directionX * 40);//40->request fix naming
                 }
@@ -35,11 +38,13 @@ public class Reposition_TileMap : MonoBehaviour
                 {
                     transform.Translate(Vector3.up * directionY * 40);//40->request fix naming
                 }
-                    break;
+                break;
             case "Enemy":
-                if(_collider.enabled)
+                if (_collider.enabled)
                 {
-                    transform.Translate(playerDirection * 20 + new Vector3(Random.Range(-3f,3f), Random.Range(-3f, 3f), 0f));
+                    Vector3 distance = playerPosition - myPosition;
+                    Vector3 random = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0);
+                    transform.Translate(random + distance * 2);
                 }
                 break;
 
